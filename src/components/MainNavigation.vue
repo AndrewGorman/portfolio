@@ -1,104 +1,54 @@
 <template>
-    <span>
-    <scrollactive
-        v-on:itemchanged="onItemChanged"
-        class="main-nav-container"
-    >
+    <div class="desktop-nav-container">
+        <h4 class="namemark">Andrew Gorman <span class="divider">|</span> Portfolio</h4>
+        <div class="right-nav-container">
             <a
-                class="nav-item scrollactive-item"
-                href="#home"
-                :class="[{'active-link': active === 'home'}]"
+                class="nav-item"
+                href="https://www.andrewgorman.dev/"
             >
                 Home
             </a>
             <a
-                class="nav-item scrollactive-item"
-                href="#about"
-                :class="[{'active-link': active === 'about'}]"
+                class="social-icon"
+                target="_blank"
+                rel="noopener"
+                href="https://www.github.com/andrewgorman/"
             >
-                About
+                <font-awesome-icon
+                    size="2x"
+                    :icon="['fab', 'github']"
+                />
             </a>
             <a
-                class="nav-item scrollactive-item"
-                href="#featured-projects"
-                :class="[{'active-link': active === 'featured-projects'}]"
+                class="social-icon"
+                href="mailto:andrew@andrewgorman.dev"
             >
-                Featured Projects
+                <font-awesome-icon
+                    size="2x"
+                    :icon="['fal', 'envelope']"
+                />
             </a>
+
             <a
-                class="nav-item"
-                :href="portfolioURL"
-                :class="[{'active-link': active === 'portfolio'}]"
+                class="social-icon"
+                target="_blank"
+                rel="noopener"
+                href="https://www.linkedin.com/in/andrew-gorman/"
             >
-                Portfolio
+                <font-awesome-icon
+                    size="2x"
+                    :icon="['fab', 'linkedin-in']"
+                />
             </a>
-    </scrollactive>
-    <div class="mobile-header">
-        <h4>Andrew Gorman</h4>
-        <tasty-burger-button
-            active-color="#3759BA"
-            class="hamburger-icon"
-            color="#EFEFEF"
-            size="m"
-            type="emphatic"
-            v-on:toggle="onToggle"
-        />
+        </div>
     </div>
-    <div
-        class="slide-out-menu"
-        :class="[{'show': showingMenu, 'hidden': !showingMenu}]"
-    >
-        <scrollactive
-            v-on:itemchanged="onItemChanged"
-            class="mobile-nav-container"
-            :offset="90"
-        >
-            <a
-                class="nav-item scrollactive-item"
-                href="#home"
-                :class="[{'active-link': active === 'home'}]"
-                @click="itemClicked"
-            >
-                Home
-            </a>
-            <a
-                class="nav-item scrollactive-item"
-                href="#about"
-                :class="[{'active-link': active === 'about'}]"
-                @click="itemClicked"
-            >
-                About
-            </a>
-            <a
-                class="nav-item scrollactive-item"
-                href="#featured-projects"
-                :class="[{'active-link': active === 'featured-projects'}]"
-                @click="itemClicked"
-            >
-                Featured Projects
-            </a>
-            <a
-                class="nav-item"
-                :href="portfolioURL"
-                :class="[{'active-link': active === 'portfolio'}]"
-                @click="itemClicked"
-            >
-                Portfolio
-            </a>
-    </scrollactive>
-    </div>
-    </span>
 </template>
 
 <script>
     export default {
         name: 'MainNavigation',
         data() {
-            return {
-                active: 'home',
-                showingMenu: false,
-                preventLoop: false,
-            };
+            return {};
         },
         computed: {
             portfolioURL() {
@@ -137,107 +87,68 @@
 <style scoped lang="sass">
     @import '@/styles/variables.sass'
 
-    .main-nav-container
+    .desktop-nav-container
         position: fixed
-        right: -1rem
-        top: 50%
-        -webkit-transform-origin: right top
-        -webkit-transform: rotate(90deg) translateX(50%)
-        display: inline-flex
-        border-radius: 10px
-        background-color: $light-black
-        padding: 1rem 1.5rem 0.5rem 1.5rem
-        height: 5.5rem
-        width: fit-content
-        min-width: 580px
-
-        .nav-item
-            list-style: none
-            padding: 1rem 1rem 0 1rem
-            margin-bottom: 0.5rem
-            white-space: nowrap
-
-            .nav-link
-                padding: 0
-
-            &:hover
-                font-size: 1.4rem
-                color: $white
-                text-decoration: none
-
-        .active-link
-            border-bottom: 2px solid $primary
-
-    .mobile-header
-        height: 80px
-        background-color: $dark-black
-        width: 100vw
-        position: fixed
+        display: flex
+        height: 5rem
+        background-color: $primary
         top: 0
         right: 0
         left: 0
-        z-index: 2000
-        display: flex
-        justify-content: center
         align-items: center
+        justify-content: left
+        padding: 1rem
+        border-bottom: 2px solid white
 
-        h4
-            margin: 0
-            padding: 0
+        .namemark
+            margin: auto auto auto 2rem
 
-        .hamburger-icon
-            position: absolute
-            right: 20px
-            z-index: 2000
+            .divider
+                margin: auto 0.5rem auto 0.5rem
 
-    .slide-out-menu
-        min-height: 100vh
-        min-width: 100vw
-        top: 0
-        bottom: 0
-        left: 125vw
-        background-color: $dark-black
-        z-index: 1000
-        position: fixed
-        padding: 100px 1rem 1rem 1rem
-        -webkit-transition: left 0.5s ease-in-out
-        -moz-transition: left 0.5s ease-in-out
-        -o-transition: left 0.5s ease-in-out
-        transition: left 0.5s ease-in-out
-        display: flex !important
-        flex-direction: column
-        justify-content: center
-        align-items: center
+        .right-nav-container
+            position: fixed
+            right: 0
+            display: inline-flex
 
-        &.show
-            display: block
-            left: 0
-
-        .mobile-nav-container
-            display: flex
-            flex-direction: column
-            text-align: center
-            margin: auto
-            min-width: 100vw
-            overflow-x: hidden
-
-            .nav-item
-                font-size: 1.5rem
-                margin-bottom: 5rem
+            .social-icon
+                margin: 1rem
+                color: white
 
                 &:hover
+                    color: darken(white, 25%)
                     text-decoration: none
 
-    @media (max-height: 600px)
-        .main-nav-container
-            padding: 1rem 1.5rem 0.5rem 1.5rem
-            height: 5rem
-            min-width: 0
-
             .nav-item
-                font-size: 2vh
-                list-style: none
-                padding: 1rem 1rem 0 1rem
-                margin-bottom: 0.5rem
+                margin: auto 1rem auto 1rem
+                font-size: 1.4rem
+
+                &:hover
+                    color: darken(white, 25%)
+                    text-decoration: none
+
+
+    @media (max-width: $phone-breakpoint)
+        .desktop-nav-container
+            flex-direction: column
+            height: 7rem
+
+            .namemark
+                margin: auto auto 0.5rem auto
+                font-size: 1.2rem
+
+            .right-nav-container
+                position: relative
+                right: 0
+                display: inline-flex
+
+                .social-icon
+                    margin: 1rem
+                    color: white
+                    font-size: 0.8rem
+
+                .nav-item
+                    margin: auto 1rem auto 1rem
+                    font-size: 1rem
 
 </style>
