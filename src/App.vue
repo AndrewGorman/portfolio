@@ -2,17 +2,20 @@
     <div id="app">
         <router-view />
         <main-navigation />
+        <!--<tag-container />-->
     </div>
 </template>
 <script>
-    import MainNavigation from './components/MainNavigation'
+    import MainNavigation from './components/MainNavigation';
+    // import TagContainer from './components/TagContainer';
 
     export default {
         name: 'App',
         components: {
-            MainNavigation
-        }
-    }
+            // TagContainer,
+            MainNavigation,
+        },
+    };
 </script>
 
 <style lang="sass">
