@@ -71,6 +71,7 @@
         text-align: center
         width: 80%
         max-width: 150rem
+        z-index: 100
 
         .card-container
             border-radius: 10px

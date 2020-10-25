@@ -1,5 +1,7 @@
 <template>
-    <div class="portfolio-container pattern-diagonal-stripes-xl">
+    <div
+        id="particles-background"
+        class="portfolio-container">
         <ProjectCard
             id="devpoker"
             title="DevPoker"
@@ -164,7 +166,9 @@
 </template>
 
 <script>
+    /* eslint-disable */
     import ProjectCard from '../components/ProjectCard';
+    import particleConfig from '../assets/particles.json';
 
     export default {
         name: 'Home',
@@ -177,7 +181,10 @@
             },
         },
         mounted() {
-            //setInterval(() => {if (!this.hoveringAbout) {this.increaseAboutTab()}}, 10000);
+            require('particles.js');
+            this.$nextTick(() => {
+                particlesJS('particles-background', particleConfig);
+            });
         },
         data() {
             return {
@@ -185,22 +192,6 @@
                 hoveringAbout: false,
                 tabTitles: ['Education', 'Work Experience', 'Skills & Proficiencies'],
             };
-        },
-        methods: {
-            increaseAboutTab() {
-                if (this.currentAboutTab === 2) {
-                    this.currentAboutTab = 0;
-                } else {
-                    this.currentAboutTab += 1;
-                }
-            },
-            decreaseAboutTab() {
-                if (this.currentAboutTab === 0) {
-                    this.currentAboutTab = 2;
-                } else {
-                    this.currentAboutTab -= 1;
-                }
-            },
         },
     };
 </script>
@@ -232,3 +223,4 @@
     //@media (min-width: $large-breakpoint)
 
 </style>
+
