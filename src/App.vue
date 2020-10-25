@@ -22,4 +22,10 @@
     @import '@/styles/master.sass'
     @import '@/styles/variables.sass'
     @import 'styles/pattern.min.css'
+
+    .particles-js-canvas-el
+        z-index: 10
+        position: fixed
+        top: 0
+        min-height: 100vh
 </style>
