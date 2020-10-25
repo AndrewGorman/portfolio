@@ -1,10 +1,13 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" :id="id">
         <div class="card-container">
             <h1>{{ title }}</h1>
-            <p class="date">{{ date }}</p>
-            <p class="tagline">{{ tagline }}</p>
-            <p class="description">{{ description }}</p>
+            <h5 class="date">{{ date }}</h5>
+            <br />
+            <h3 class="tagline">{{ tagline }}</h3>
+            <div class="body-content">
+                <slot />
+            </div>
         </div>
         <div
             v-if="!lastItem"
@@ -26,11 +29,11 @@
                 type: String,
                 required: true,
             },
-            tagline: {
+            id: {
                 type: String,
                 required: true,
             },
-            description: {
+            tagline: {
                 type: String,
                 required: true,
             },
@@ -60,29 +63,37 @@
     .wrapper
         display: flex
         flex-direction: column
-        justify-content: center
+        justify-content: flex-start
         align-items: center
         text-align: center
+        width: 80%
+        max-width: 150rem
 
         .card-container
             border-radius: 10px
-            width: 800px
-            height: 500px
+            width: 80%
             color: white
             background-color: $light-black
             display: flex
             flex-direction: column
-            justify-content: center
+            justify-content: flex-start
             align-items: center
             text-align: center
-            padding: 4rem
+            padding: 2rem 4rem 4rem 4rem
             border: 1px solid $white
 
             .tagline
                 margin-bottom: 1rem
 
-            .description
+            .body-content
                 text-align: left
+                min-width: 100%
+
+                h5
+                    font-size: 1.5rem
+
+                p
+                    font-size: 1.2rem
 
         .connector
             height: 69px
@@ -91,11 +102,13 @@
 
     @media (max-width: $phone-breakpoint)
         .wrapper
+            width: 100%
+
             .card-container
                 height: fit-content
                 padding: 2rem
                 margin: 0 4rem 0 4rem
-                max-width: 90vw
+                max-width: 95vw
 
                 h1
                     font-size: 1.8rem
