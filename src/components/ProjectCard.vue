@@ -12,6 +12,9 @@
         <div
             v-if="!lastItem"
             class="connector">
+        </div>
+        <div v-else
+        class="bottom-margin">
 
         </div>
     </div>
@@ -99,6 +102,9 @@
             height: 69px
             width: 0
             border-right: 2px solid $white
+
+        .bottom-margin
+            margin-bottom: 4rem
 
     @media (max-width: $phone-breakpoint)
         .wrapper
