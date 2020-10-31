@@ -93,7 +93,7 @@
             date="Summer 2020"
             tagline="Quickly and easily look up ACNH information using your voice"
         >
-            <h5>The Motovation</h5>
+            <h5>The Motivation</h5>
             <p>This Alexa Skill was built in a one night hackathon after I became tired of looking up game trivia
                 manually!</p>
 
@@ -214,7 +214,7 @@
         .portfolio-container
             padding-top: 10rem
 
-    @media (max-height: 700px)
+    //@media (max-height: 700px)
         .portfolio-container
             margin-top: 5rem
 
