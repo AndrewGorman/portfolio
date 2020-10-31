@@ -9,6 +9,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 import {
     faAngleLeft,
+    faAngleDown,
     faAngleRight,
     faEnvelope,
 } from '@fortawesome/pro-light-svg-icons';
@@ -16,6 +17,7 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 library.add(
     faAngleLeft,
+    faAngleDown,
     faAngleRight,
     faEnvelope,
     faGithub,

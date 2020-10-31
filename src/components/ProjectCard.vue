@@ -5,16 +5,25 @@
             <h5 class="date">{{ date }}</h5>
             <br />
             <h3 class="tagline">{{ tagline }}</h3>
-            <div class="body-content">
+            <b-collapse
+                :visible="expanded"
+                class="body-content">
                 <slot />
-            </div>
+            </b-collapse>
+            <font-awesome-icon
+                title="expand"
+                :class="[{'flip-icon': expanded}]"
+                size="5x"
+                :icon="['fal', 'angle-down']"
+                @click="expanded = !expanded"
+            />
         </div>
         <div
             v-if="!lastItem"
             class="connector">
         </div>
         <div v-else
-        class="bottom-margin">
+             class="bottom-margin">
 
         </div>
     </div>
@@ -56,7 +65,9 @@
         mounted() {
         },
         data() {
-            return {};
+            return {
+                expanded: true,
+            };
         },
         methods: {},
     };
@@ -69,13 +80,13 @@
         justify-content: flex-start
         align-items: center
         text-align: center
-        width: 80%
+        width: 100%
         max-width: 150rem
-        z-index: 100
 
         .card-container
+            z-index: 100
             border-radius: 10px
-            width: 80%
+            width: 70%
             color: white
             background-color: $light-black
             display: flex
@@ -83,8 +94,14 @@
             justify-content: flex-start
             align-items: center
             text-align: center
-            padding: 2rem 4rem 4rem 4rem
+            padding: 2rem 4rem 2rem 4rem
             border: 1px solid $white
+
+            .fa-angle-down
+                transition-duration: 0.25s
+
+                &.flip-icon
+                    transform: rotate(180deg)
 
             .tagline
                 margin-bottom: 1rem
