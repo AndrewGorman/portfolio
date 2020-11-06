@@ -3,7 +3,7 @@
         id="particles-background"
         class="portfolio-container">
         <ProjectCard
-            id="devpoker"
+            scroll-to="devpoker"
             title="DevPoker"
             date="In Beta"
             tagline="Streamline your Agile sprint planning process"
@@ -46,7 +46,7 @@
                 you employ DevPoker in your sessions!</p>
         </ProjectCard>
         <ProjectCard
-            id="musiclink"
+            scroll-to="musiclink"
             title="MusicLink"
             date="In Development"
             tagline="Revolutionize how you share music"
@@ -79,7 +79,25 @@
             <p>Share music with anyone, from any device, without worrying about what service they use.</p>
         </ProjectCard>
         <ProjectCard
-            id="monstar-trucks"
+            scroll-to="portfolio"
+            title="Personal Portfolio"
+            date="In Development"
+            tagline="An interactive timeline of my personal projects"
+        >
+            <h5>Project Status:</h5>
+            <p>This project is still in development, check back soon!</p>
+        </ProjectCard>
+        <ProjectCard
+            scroll-to="personal-website"
+            title="Personal Website"
+            date="In Development"
+            tagline="A web resume highlighting my experience"
+        >
+            <h5>Project Status:</h5>
+            <p>This project is still in development, check back soon!</p>
+        </ProjectCard>
+        <ProjectCard
+            scroll-to="monstar-trucks"
             title="MonstAR Trucks"
             date="In Planning"
             tagline="An interactive multiplayer AR experience on iOS"
@@ -88,7 +106,7 @@
             <p>This project is still in the early planning stages, check back soon!</p>
         </ProjectCard>
         <ProjectCard
-            id="pocket-guide"
+            scroll-to="pocket-guide"
             title="Timmy's Pocket Guide"
             date="Summer 2020"
             tagline="Quickly and easily look up ACNH information using your voice"
@@ -108,25 +126,7 @@
             </p>
         </ProjectCard>
         <ProjectCard
-            id="portfolio"
-            title="Personal Portfolio"
-            date="In Development"
-            tagline="An interactive timeline of my personal projects"
-        >
-            <h5>Project Status:</h5>
-            <p>This project is still in development, check back soon!</p>
-        </ProjectCard>
-        <ProjectCard
-            id="personal-website"
-            title="Personal Website"
-            date="In Development"
-            tagline="A web resume highlighting my experience"
-        >
-            <h5>Project Status:</h5>
-            <p>This project is still in development, check back soon!</p>
-        </ProjectCard>
-        <ProjectCard
-            id="upstream"
+            scroll-to="upstream"
             title="Upstream Gardens"
             date="Redesign complete: Fall 2019"
             tagline="A website for a family owned pick-your-own berry patch and orchard"
@@ -135,7 +135,7 @@
             <p>This project is complete but I haven't done a writeup on it yet. Check back soon!</p>
         </ProjectCard>
         <ProjectCard
-            id="made-events"
+            scroll-to="made-events"
             title="MADE for this. Events"
             date="Feburary 2020"
             tagline="A website for an event planning service"
@@ -144,7 +144,7 @@
             <p>This project is complete but I haven't done a writeup on it yet. Check back soon!</p>
         </ProjectCard>
         <ProjectCard
-            id="pella-cinemas"
+            scroll-to="pella-cinemas"
             title="Pella Cinemas"
             date="Spring 2018"
             tagline="A custom wordpress cinema management platform"
@@ -153,7 +153,7 @@
             <p>This project is complete but I haven't done a writeup on it yet. Check back soon!</p>
         </ProjectCard>
         <ProjectCard
-            id="upstream-legacy"
+            scroll-to="upstream-legacy"
             title="Upstream Gardens"
             date="Spring 2016"
             tagline="First version of Upstream Gardens released"
@@ -166,7 +166,6 @@
 </template>
 
 <script>
-    /* eslint-disable */
     import ProjectCard from '../components/ProjectCard';
     import particleConfig from '../assets/particles.json';
 
@@ -175,28 +174,20 @@
         components: {
             ProjectCard,
         },
-        computed: {
-            portfolioURL() {
-                return process.env.VUE_APP_PORTFOLIO_LINK;
-            },
-        },
         mounted() {
             require('particles.js');
             this.$nextTick(() => {
+                // eslint-disable-next-line no-undef
                 particlesJS('particles-background', particleConfig);
             });
-        },
-        data() {
-            return {
-                currentAboutTab: 2,
-                hoveringAbout: false,
-                tabTitles: ['Education', 'Work Experience', 'Skills & Proficiencies'],
-            };
         },
     };
 </script>
 <style lang="sass">
     @import '@/styles/variables.sass'
+
+    #app
+        scroll-padding-top: 50rem
 
     .portfolio-container
         min-width: 100vw

@@ -1,7 +1,23 @@
 <template>
-    <div class="wrapper" :id="id">
+    <div class="wrapper">
+        <div :id="scrollTo" class="scroll-to"></div>
         <div class="card-container">
-            <h1>{{ title }}</h1>
+            <div class="top-row">
+                <font-awesome-icon
+                    :title="`Copy link to ${title}`"
+                    size="2x"
+                    :icon="['fal', 'link']"
+                    :data-clipboard-text="`https://portfolio.andrewgorman.dev/#${scrollTo}`"
+                />
+                <h1>{{ title }}</h1>
+                <font-awesome-icon
+                    :title="`${expanded ? 'Minimize' : 'Expand'} card`"
+                    :class="[{'flip-icon': expanded}]"
+                    size="5x"
+                    :icon="['fal', 'angle-down']"
+                    @click="expanded = !expanded"
+                />
+            </div>
             <h5 class="date">{{ date }}</h5>
             <br />
             <h3 class="tagline">{{ tagline }}</h3>
@@ -10,13 +26,6 @@
                 class="body-content">
                 <slot />
             </b-collapse>
-            <font-awesome-icon
-                title="expand"
-                :class="[{'flip-icon': expanded}]"
-                size="5x"
-                :icon="['fal', 'angle-down']"
-                @click="expanded = !expanded"
-            />
         </div>
         <div
             v-if="!lastItem"
@@ -30,18 +39,20 @@
 </template>
 
 <script>
+    import ClipboardJS from 'clipboard';
+
     export default {
         name: 'ProjectCard',
         props: {
+            scrollTo: {
+                type: String,
+                required: true,
+            },
             title: {
                 type: String,
                 required: true,
             },
             date: {
-                type: String,
-                required: true,
-            },
-            id: {
                 type: String,
                 required: true,
             },
@@ -60,9 +71,8 @@
                 default: false,
             },
         },
-        components: {},
-        computed: {},
         mounted() {
+            new ClipboardJS('.fa-link');
         },
         data() {
             return {
@@ -83,6 +93,12 @@
         width: 100%
         max-width: 150rem
 
+        .scroll-to
+            position: relative
+            height: 0
+            width: 0
+            bottom: 8rem
+
         .card-container
             z-index: 100
             border-radius: 10px
@@ -96,6 +112,23 @@
             text-align: center
             padding: 2rem 4rem 2rem 4rem
             border: 1px solid $white
+
+            .top-row
+                width: 100%
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                align-items: center
+
+                .fa-link
+                    cursor: pointer
+                    -webkit-transition: all 0.25s ease-in-out
+                    -moz-transition: all 0.25s ease-in-out
+                    -o-transition: all 0.25s ease-in-out
+                    transition: all 0.25s ease-in-out
+
+                    &:hover
+                        transform: translateY(-5px)
 
             .fa-angle-down
                 transition-duration: 0.25s
