@@ -4,7 +4,7 @@
         <div class="right-nav-container">
             <a
                 class="nav-item"
-                href="https://www.andrewgorman.dev/"
+                :href="personalWebsiteURL"
             >
                 Home
             </a>
@@ -47,38 +47,9 @@
 <script>
     export default {
         name: 'MainNavigation',
-        data() {
-            return {};
-        },
         computed: {
-            portfolioURL() {
-                return process.env.VUE_APP_PORTFOLIO_LINK;
-            },
-        },
-        watch: {
-            showingMenu() {
-                if (this.showingMenu) {
-                    document.documentElement.style.overflow = 'hidden';
-                } else {
-                    document.documentElement.style.overflow = 'auto';
-                }
-            },
-        },
-        methods: {
-            setActive(location) {
-                this.active = location;
-            },
-            onItemChanged(event, currentItem) {
-                String.prototype.trim = function() {
-                    return String(this).replace(/^(.)*#/g, '');
-                };
-                this.active = currentItem.href.trim();
-            },
-            onToggle(state) {
-                this.showingMenu = state;
-            },
-            itemClicked() {
-                this.$el.querySelector('.hamburger').click();
+            personalWebsiteURL() {
+                return process.env.VUE_APP_PERSONAL_WEBSITE_LINK;
             },
         },
     };
