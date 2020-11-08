@@ -7,6 +7,7 @@
             title="DevPoker"
             date="In Beta"
             tagline="Streamline your Agile sprint planning process"
+            url="https://www.devpoker.app/"
         >
             <h5>The Motivation:</h5>
             <p>My development team faced a bottleneck in our sprint planning meetings when we decided to start weighing
@@ -40,16 +41,15 @@
             </ul>
             </p>
             <h5>TL;DR</h5>
-            <p>DevPoker make sprint planning go brrrr*</p>
-            <p>* Translation: Your sprint planning can be much shorter as well as being more effective and productive
-                when
-                you employ DevPoker in your sessions!</p>
+            <p>Your sprint planning can be much shorter as well as more effective and productive when you employ
+                DevPoker in your sessions!</p>
         </ProjectCard>
         <ProjectCard
             scroll-to="musiclink"
             title="MusicLink"
             date="In Development"
             tagline="Revolutionize how you share music"
+            url="https://www.musiclink.app/"
         >
             <h5>The Motivation:</h5>
             <p>I love sharing music with friends. It’s a great way to communicate, learn more about each other, and grow
@@ -86,12 +86,27 @@
         >
             <h5>Project Status:</h5>
             <p>This project is still in development, check back soon!</p>
+            <p>I know what you're thinking and yes this website was mostly an excuse to build a digital lava lamp. You
+                can click on the background to add more bubbles if you see an empty spot.</p>
+            <div
+                class="cta-button-row"
+            >
+                <b-button
+                    pill
+                    size="lg"
+                    variant="outline-light"
+                    :title="`Link to... oh`"
+                >
+                    Check o.. wait a minute, you're already here.
+                </b-button>
+            </div>
         </ProjectCard>
         <ProjectCard
             scroll-to="personal-website"
             title="Personal Website"
             date="In Development"
             tagline="A web resume highlighting my experience"
+            url="https://www.andrewgorman.dev/"
         >
             <h5>Project Status:</h5>
             <p>This project is still in development, check back soon!</p>
@@ -130,6 +145,7 @@
             title="Upstream Gardens"
             date="Redesign complete: Fall 2019"
             tagline="A website for a family owned pick-your-own berry patch and orchard"
+            url="https://www.upstreamgardens.com/"
         >
             <h5>Project status</h5>
             <p>This project is complete but I haven't done a writeup on it yet. Check back soon!</p>
@@ -139,6 +155,7 @@
             title="MADE for this. Events"
             date="Feburary 2020"
             tagline="A website for an event planning service"
+            url="https://www.madeforthisevents.com/"
         >
             <h5>Project status</h5>
             <p>This project is complete but I haven't done a writeup on it yet. Check back soon!</p>
@@ -181,6 +198,7 @@
                 particlesJS('particles-background', particleConfig);
             });
         },
+        computed: {},
     };
 </script>
 <style lang="sass">

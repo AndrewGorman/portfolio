@@ -25,6 +25,21 @@
                 :visible="expanded"
                 class="body-content">
                 <slot />
+                <div
+                    v-if="url"
+                    class="cta-button-row"
+                >
+                    <b-button
+                        pill
+                        size="lg"
+                        target="_blank"
+                        variant="outline-light"
+                        :title="`Link to ${title} website`"
+                        :href="url"
+                    >
+                        Check out {{ title }}
+                    </b-button>
+                </div>
             </b-collapse>
         </div>
         <div
@@ -33,7 +48,6 @@
         </div>
         <div v-else
              class="bottom-margin">
-
         </div>
     </div>
 </template>
@@ -60,6 +74,10 @@
                 type: String,
                 required: true,
             },
+            url: {
+                type: String,
+                default: '',
+            },
             tags: {
                 type: Array,
                 default: () => {
@@ -73,13 +91,25 @@
         },
         mounted() {
             new ClipboardJS('.fa-link');
+            this.expanded = this.inUrl || window.innerWidth > 800
         },
         data() {
             return {
-                expanded: true,
+                expanded: false,
             };
         },
-        methods: {},
+        computed: {
+            inUrl() {
+                if(this.$route.hash) {
+                    let hash = this.$route.hash;
+                    if (hash[0] === '#') {
+                        hash = hash.substring(1);
+                    }
+                    return hash === this.scrollTo;
+                }
+                return false
+            },
+        },
     };
 </script>
 <style lang="sass">
@@ -148,6 +178,12 @@
 
                 p
                     font-size: 1.2rem
+
+            .cta-button-row
+                width: 100%
+                display: flex
+                justify-content: center
+                margin: 3rem 0 2rem 0
 
         .connector
             height: 69px
