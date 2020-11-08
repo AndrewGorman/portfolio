@@ -33,13 +33,12 @@
                 while our number of weighed issues per meetings rose slightly.
             </p>
             <h5>The Tech</h5>
-            <p>DevPoker was built using the following technologies & frameworks:
+            <p>DevPoker was built using the following technologies & frameworks:</p>
             <ul>
                 <li>Frontend: Vue JS</li>
                 <li>Backend: Django</li>
                 <li>Local Development: Docker Compose</li>
             </ul>
-            </p>
             <h5>TL;DR</h5>
             <p>Your sprint planning can be much shorter as well as more effective and productive when you employ
                 DevPoker in your sessions!</p>
@@ -68,13 +67,12 @@
                 being concerned about what streaming service the other user may be a subscriber of. As of now, MusicLink
                 only supports Spotify and Apple Music due to market share and API restrictions. </p>
             <h5>The Tech</h5>
-            <p>MusicLink was built using the following technologies & frameworks:
+            <p>MusicLink was built using the following technologies & frameworks:</p>
             <ul>
                 <li>Mobile Frontend: React Native</li>
                 <li>Web frontend: Vue JS</li>
                 <li>Backend: TBD</li>
             </ul>
-            </p>
             <h5>TL;DR</h5>
             <p>Share music with anyone, from any device, without worrying about what service they use.</p>
         </ProjectCard>

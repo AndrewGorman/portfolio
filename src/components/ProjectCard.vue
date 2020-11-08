@@ -176,7 +176,7 @@
                 h5
                     font-size: 1.5rem
 
-                p
+                p, li
                     font-size: 1.2rem
 
             .cta-button-row
