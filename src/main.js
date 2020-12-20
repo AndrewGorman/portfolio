@@ -5,6 +5,7 @@ import store from './store';
 import {BootstrapVue} from 'bootstrap-vue';
 import VueScrollactive from 'vue-scrollactive';
 import {library} from '@fortawesome/fontawesome-svg-core';
+import VueSilentbox from 'vue-silentbox';
 import {faGithub, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 import {
     faAngleDown,
@@ -23,6 +24,7 @@ library.add(
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+Vue.use(VueSilentbox);
 Vue.use(BootstrapVue);
 Vue.use(VueScrollactive);
 

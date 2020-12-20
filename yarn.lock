@@ -8355,6 +8355,11 @@ vue-scrollactive@^0.9.3:
   dependencies:
     bezier-easing "^2.0.3"
 
+vue-silentbox@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/vue-silentbox/-/vue-silentbox-2.3.0.tgz#35f9f02ef9144fc7b485d9d0b23e5c60cafd1705"
+  integrity sha512-RUFvJSYIdNA3KQYVRJ7qvO3T6e/KSf8VF3brzL5xafHx/owW1dKbtTGEQl/hK14VR0OMpOro8Z/Y5CsS7bXOtw==
+
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"

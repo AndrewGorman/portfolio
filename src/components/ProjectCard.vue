@@ -130,7 +130,6 @@
             bottom: 8rem
 
         .card-container
-            z-index: 100
             border-radius: 10px
             width: 70%
             color: white
@@ -142,6 +141,7 @@
             text-align: center
             padding: 2rem 4rem 2rem 4rem
             border: 1px solid $white
+
 
             .top-row
                 width: 100%

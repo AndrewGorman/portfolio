@@ -24,8 +24,25 @@
     @import 'styles/pattern.min.css'
 
     .particles-js-canvas-el
-        z-index: 10
+        z-index: 0
         position: fixed
         top: 0
         min-height: 100vh
+
+    .portfolio-container
+        z-index: 1
+        position: relative
+
+    .silentbox-item img
+        max-width: 15rem
+        border-radius: 5px
+
+        &:hover
+            filter: drop-shadow(5px 5px 5px black)
+
+    #silentbox-overlay__container img
+        border-radius: 5px
+
+    #silentbox-gallery
+        margin-bottom: 2rem
 </style>
