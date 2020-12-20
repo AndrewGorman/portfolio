@@ -109,6 +109,7 @@ fabric.properties
 
 node_modules/
 dist/
+dist.zip
 npm-debug.log
 yarn-error.log
 
