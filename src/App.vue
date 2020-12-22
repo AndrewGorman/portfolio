@@ -40,6 +40,13 @@
         &:hover
             filter: drop-shadow(5px 5px 5px black)
 
+    #silentbox-overlay
+        top: 4rem !important
+        height: calc(100% - 4rem) !important
+
+    #silentbox-overlay__background
+        background-color: rgba(0, 0, 0, 0.9) !important
+
     #silentbox-overlay__container img
         border-radius: 5px
 
